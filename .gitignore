@@ -1,0 +1,16 @@
+.env
+venv/
+__pycache__/
+*.pyc
+db.sqlite3
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Environment files
+.env.*
+!.env.example
+
+# Build and cache files
+*.log
+.DS_Store
