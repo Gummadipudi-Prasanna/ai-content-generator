@@ -2,11 +2,9 @@
 
 A full-stack content generation and management application built using **React.js, Django REST Framework, and Contentful CMS**.
 
-The application allows users to generate content based on a selected topic, content type, tone, and length. Users can review, edit, save, update, view, and delete content through an interactive React frontend integrated with Django REST APIs and Contentful CMS.
+The application allows users to generate sample content based on a selected topic, content type, tone, and length. Users can review, edit, save, update, view, and delete content through an interactive React frontend integrated with Django REST APIs and Contentful CMS.
 
 > **Project Status:** Currently uses mock content generation. Real OpenAI API integration is planned as a future enhancement.
-
----
 
 ## Project Overview
 
@@ -16,7 +14,7 @@ Users can enter a topic, choose their preferred content type, tone, and length, 
 
 ## Features
 
-- Generate content using a mock generation service.
+- Generate sample content using a mock generation service.
 - Select different content types:
   - Blog
   - Product Description
@@ -30,8 +28,7 @@ Users can enter a topic, choose their preferred content type, tone, and length, 
   - Short
   - Medium
   - Long
-- Preview generated content.
-- Edit generated content before saving.
+- Preview and edit generated content.
 - Save content to Contentful CMS.
 - View saved content.
 - Edit and update existing content.
@@ -72,10 +69,7 @@ ai-content-generator/
 │   └── index.html
 │
 ├── postman/
-├── venv/
-├── .env
 ├── .gitignore
-├── db.sqlite3
 ├── manage.py
 └── README.md
 ```
@@ -92,7 +86,7 @@ ai-content-generator/
 ### 1. Clone the Repository
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone https://github.com/Gummadipudi-Prasanna/ai-content-generator.git
 cd ai-content-generator
 ```
 
@@ -113,12 +107,13 @@ Activate the virtual environment:
 Install the required packages:
 
 ```powershell
-pip install django djangorestframework django-cors-headers requests python-dotenv djangorestframework-simplejwt
+pip install django djangorestframework django-cors-headers requests python-dotenv djangorestframework-simplejwt openai
 ```
 
-Create a `.env` file in the project root:
+Create a `.env` file in the project root and configure your credentials:
 
 ```env
+DJANGO_SECRET_KEY=your-secret-key
 OPENAI_API_KEY=
 CONTENTFUL_SPACE_ID=
 CONTENTFUL_ENVIRONMENT=master
@@ -133,15 +128,13 @@ Run database migrations:
 python manage.py migrate
 ```
 
-Start the Django server:
+Start the Django development server:
 
 ```powershell
 python manage.py runserver
 ```
 
-Backend URL:
-
-`http://127.0.0.1:8000/`
+Backend URL: `http://127.0.0.1:8000/`
 
 ### 3. Frontend Setup
 
@@ -149,23 +142,11 @@ Open a new terminal:
 
 ```powershell
 cd frontend
-```
-
-Install frontend dependencies:
-
-```powershell
 npm install
-```
-
-Start the React development server:
-
-```powershell
 npm run dev
 ```
 
-Frontend URL:
-
-`http://localhost:5173/`
+Frontend URL: `http://localhost:5173/`
 
 ## API Endpoints
 
@@ -179,9 +160,7 @@ Frontend URL:
 
 ## Contentful CMS Integration
 
-Contentful CMS is used to store and manage generated content.
-
-The application integrates with the Contentful Content Management API.
+Contentful CMS is used to store and manage generated content through the Content Management API.
 
 Configured content fields:
 
@@ -202,15 +181,16 @@ Configure your Contentful Space ID, Environment, and Management API token in the
 
 ## Testing
 
-The following functionality has been tested during development:
+The following functionality was tested during development:
 
 - Content generation API.
-- Input validation.
+- Empty topic validation.
 - Save content to Contentful.
 - Retrieve saved content.
 - Update existing content.
 - Delete saved content.
-- Frontend production build.
+- Backend connection error handling.
+- Contentful entry verification.
 
 API testing was performed using Postman, and frontend functionality was tested through the React application.
 
@@ -224,3 +204,6 @@ API testing was performed using Postman, and frontend functionality was tested t
 ## Author
 
 Developed as a full-stack portfolio project using React.js, Django REST Framework, and Contentful CMS.
+
+**GitHub Repository:**  
+https://github.com/Gummadipudi-Prasanna/ai-content-generator
